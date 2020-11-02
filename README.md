@@ -1,3 +1,4 @@
 # math-toolset
-Alorithm:
-  Distance:
+###Alorithm:
+##Distance:
+minkowski distance 
