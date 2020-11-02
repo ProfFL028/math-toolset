@@ -20,4 +20,20 @@ class DistanceTest {
     fun manhattanDistanceTest() {
         assertEquals(2.0, Distance.manhattan(users["Hailey"].orEmpty(), users["Veronica"].orEmpty()))
     }
+    @Test
+    fun maximumNormTest() {
+        assertEquals(4.5, Distance.maximumNorm(users["Angelica"].orEmpty(), users["Bill"].orEmpty()))
+    }
+
+    @Test
+    fun nearestNeighborTest() {
+        var result = Distance.nearestNeighbor("Hailey", users, Distance.Companion::manhattan)
+        assertEquals("Veronica", result?.key)
+    }
+
+    @Test
+    fun recommendTest() {
+        var recommendUser = Distance.recommend("Hailey", users, Distance.Companion::manhattan)
+        assertEquals("{Phoenix=4.0, Blues Traveler=3.0, Slightly Stoopid=2.5}", recommendUser.toString())
+    }
 }
